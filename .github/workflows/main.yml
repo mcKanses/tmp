@@ -14,4 +14,7 @@ jobs:
       - name: test env vars
         run: |
           echo ${{ env.TEST_ENV_VARS }} >> .env
-          echo $(cat .env)
+      - uses: actions/upload-artifact@v3
+        with:
+          name: env-var
+          path: .env
