@@ -1,0 +1,17 @@
+name: test
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: test env vars
+        run: |
+          echo {{ env.$TEST_ENV_VARS }} >> .env
+          cat .env
