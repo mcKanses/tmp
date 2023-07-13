@@ -15,8 +15,8 @@ jobs:
         env:
           TEST_ENV_VARS: ${{ secrets.TEST_ENV_VARS }}
         run: |
-          echo $TEST_ENV_VARS
-          echo $TEST_ENV_VARS >> .env
+          echo "$TEST_ENV_VARS"
+          echo "$TEST_ENV_VARS" >> .env
       - uses: actions/upload-artifact@v3
         with:
           name: env-var
