@@ -12,10 +12,11 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v2
       - name: test env vars
+        env:
+          TEST_ENV_VARS: ${{ secrets.TEST_ENV_VARS }}
         run: |
-          echo ${{ secrets.TEST_ENV_VARS }}
-          echo "${{ secrets.TEST_ENV_VARS }}"
-          echo "${{ secrets.TEST_ENV_VARS }}" >> .env
+          echo $TEST_ENV_VARS
+          echo $TEST_ENV_VARS >> .env
       - uses: actions/upload-artifact@v3
         with:
           name: env-var
