@@ -14,4 +14,4 @@ jobs:
       - name: test env vars
         run: |
           echo ${{ env.TEST_ENV_VARS }} >> .env
-          cat .env
+          echo $(cat .env)
